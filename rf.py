@@ -148,16 +148,24 @@ def open_main_form():
     # ================= DASHBOARD VIEWS =================
     def show_dashboard(selection):
         clear_content()
-            
+        
         if selection == "home":
-                tk.Label(content, text="Home Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Home Dashboard", font=("Arial", 20)).pack(pady=20)
         elif selection == "radio":
-                tk.Label(content, text="Radio Frequency Simulation Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Radio Frequency Simulation Dashboard", font=("Arial", 20)).pack(pady=20)
         elif selection == "reports":
-                tk.Label(content, text="Reports Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Reports Dashboard", font=("Arial", 20)).pack(pady=20)
         elif selection == "settings":
-    
-            show_settings()
+            show_settings()   
+        elif selection == "about":
+            # ================= ABOUT US DASHBOARD =================
+            tk.Label(content, text="About Us", font=("Arial", 20)).pack(pady=10)
+            tk.Label(content, text="This Simulation is a sample test.", font=("Arial", 14)).pack(pady=5)
+            tk.Label(content, text="Developed By:", font=("Arial", 14, "underline")).pack(pady=5)
+            tk.Label(content, text="Group 1", font=("Arial", 12)).pack()
+            tk.Label(content, text="Main Dev: Loy Floro", font=("Arial", 12)).pack()
+            tk.Label(content, text="Frontend and Backend Dev: Qhris", font=("Arial", 12)).pack()
+
     # ================= USER SETTINGS =================
     def show_settings():
         clear_content()
@@ -291,6 +299,9 @@ def open_main_form():
 
     btn_settings = tk.Button(sidebar, text="  Settings", anchor="w", fg="white", bg="#34495e", width=20, command=lambda: show_dashboard("settings"))
     btn_settings.pack(pady=5)
+    
+    btn_about = tk.Button(sidebar, text="  About Us", anchor="w", fg="white", bg="#34495e", width=20, command=lambda: show_dashboard("about"))
+    btn_about.pack(pady=5)
 
     tk.Button(sidebar, text="  Logout", anchor="w", fg="white", bg="red", width=20, command=logout).pack(pady=10)
 
