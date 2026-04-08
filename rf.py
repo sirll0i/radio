@@ -257,6 +257,7 @@ def open_main_form():
             conn.commit()
             if cursor.rowcount > 0:
                 messagebox.showinfo("Success", "User Updated")
+                clear_fields()
             else:
                 messagebox.showerror("Error", "User not found")
             conn.close()
@@ -279,11 +280,11 @@ def open_main_form():
                 messagebox.showerror("Error", "User not found")
             conn.close()
 
-        tk.Button(content, text="Save", width=12, command=save_user).grid(row=5, column=0)
-        tk.Button(content, text="Search", width=12, command=search_user).grid(row=5, column=1)
-        tk.Button(content, text="Update", width=12, command=update_user).grid(row=6, column=0)
-        tk.Button(content, text="Delete", width=12, command=delete_user).grid(row=6, column=1)
-        tk.Button(content, text="Clear", width=12, command=clear_fields).grid(row=7, column=0, columnspan=2)
+        tk.Button(content, text="Save", width=12, command=save_user).grid(row=13, column=1)
+        tk.Button(content, text="Search", width=12, command=search_user).grid(row=13, column=2)
+        tk.Button(content, text="Update", width=12, command=update_user).grid(row=13, column=3)
+        tk.Button(content, text="Delete", width=12, command=delete_user).grid(row=13, column=4)
+        tk.Button(content, text="Clear", width=12, command=clear_fields).grid(row=13, column=6)
 
     # ================= LOGOUT =================
     def logout():
@@ -310,8 +311,10 @@ def open_main_form():
     btn_about = tk.Button(sidebar, text="  About Us", anchor="w", fg="white", bg="#34495e", width=20, command=lambda: show_dashboard("about"))
     btn_about.pack(pady=5)
 
-    tk.Button(sidebar, text="  Logout", anchor="w", fg="white", bg="red", width=20, command=logout).pack(pady=10)
-
+    #tk.Button(sidebar, text="  Logout", anchor="w", fg="white", bg="red", width=20, command=logout).pack(pady=10)
+    tk.Button(sidebar, text="  Logout", anchor="w", fg="white", bg="red", width=20, command=logout)\
+    .pack(side="bottom", fill="x", pady=10)
+    
     show_dashboard()
     main.mainloop()
 
@@ -349,8 +352,18 @@ def create_login_form():
     entry_pass = tk.Entry(root, show="*")
     entry_pass.pack()
 
-    tk.Button(root, text="Login", command=login).pack(pady=10)
-    tk.Button(root, text="Forgot Password?", command=forgot_password).pack()
+
+   # Frame to hold the buttons horizontally
+    button_frame = tk.Frame(root)
+    button_frame.pack(pady=20)
+
+    # Login button
+    tk.Button(button_frame, text="Login", width=12, command=login).pack(side="left", padx=5)
+
+    # Forgot Password button
+    tk.Button(button_frame, text="Forgot Password?", width=15, command=forgot_password).pack(side="left", padx=5)
+   # tk.Button(root, text="Login", command=login).pack(pady=10)
+    #tk.Button(root, text="Forgot Password?", command=forgot_password).pack()
 
     root.mainloop()
 
