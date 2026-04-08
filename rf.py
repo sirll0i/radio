@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 import random
 import string
 
+
 # ================= DATABASE CONNECTION =================
 def connect_db():
     return mysql.connector.connect(
@@ -117,7 +118,7 @@ def forgot_password():
 # ================= MAIN DASHBOARD =================
 def open_main_form():
     main = tk.Tk()
-    main.title("Dashboard")
+    main.title("Radio Simulator Application")
     main.geometry("800x500")
 
     width = 800
@@ -294,7 +295,7 @@ def open_main_form():
             create_login_form()
 
     # ================= RADIO BUTTONS IN SIDEBAR =================
-    tk.Label(sidebar, text="Dashboards", bg="#2c3e50", fg="white", font=("Arial", 12)).pack(pady=10)
+    tk.Label(sidebar, text="Welcome", bg="#2c3e50", fg="white", font=("Arial", 12)).pack(pady=10)
 
     btn_home = tk.Button(sidebar, text="  Home", anchor="w", fg="white", bg="#34495e", width=20, command=lambda: show_dashboard("home"))
     btn_home.pack(pady=5)
