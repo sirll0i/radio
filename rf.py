@@ -171,7 +171,7 @@ def open_main_form():
             tk.Label(content, text="Main Dev: Loy Floro", font=("Arial", 12)).pack()
             tk.Label(content, text="Frontend and Backend Dev: Qhris", font=("Arial", 12)).pack()
 
-            tk.Label(content, text="Home", font=("Arial", 20)).pack(pady=10)
+            
            
     # ================= USER SETTINGS =================
     def show_settings():
