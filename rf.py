@@ -151,10 +151,15 @@ def open_main_form():
         
         if selection == "home":
             tk.Label(content, text="Home Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Dito ilalagay ang mga analytics", font=("Arial", 20)).pack(pady=50)
         elif selection == "radio":
             tk.Label(content, text="Radio Frequency Simulation Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Dito ilalagay ang simulation", font=("Arial", 20)).pack(pady=50)
         elif selection == "reports":
             tk.Label(content, text="Reports Dashboard", font=("Arial", 20)).pack(pady=20)
+            tk.Label(content, text="Dito ilalagay ang mga ", font=("Arial", 20)).pack(pady=50)
+            tk.Label(content, text="report at history, lagyan ng table ", font=("Arial", 20)).pack(pady=20)
+        
         elif selection == "settings":
             show_settings()   
         elif selection == "about":
@@ -166,6 +171,8 @@ def open_main_form():
             tk.Label(content, text="Main Dev: Loy Floro", font=("Arial", 12)).pack()
             tk.Label(content, text="Frontend and Backend Dev: Qhris", font=("Arial", 12)).pack()
 
+            tk.Label(content, text="Home", font=("Arial", 20)).pack(pady=10)
+           
     # ================= USER SETTINGS =================
     def show_settings():
         clear_content()
