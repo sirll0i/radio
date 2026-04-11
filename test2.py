@@ -579,7 +579,7 @@ class RadioSimulatorApp(ctk.CTk):
 
     def logout(self):
         if messagebox.askyesno("Exit", "Logout?"):
-            self.log_activity("Logged out (Manual)")
+            self.log_activity("Logged out (Manual)") # Add this line
             self.withdraw()
             self.show_login()
 
