@@ -566,12 +566,19 @@ class RadioSimulatorApp(ctk.CTk):
                 cursor = conn.cursor()
                 cursor.execute("SELECT * FROM user WHERE username=%s AND password=%s", (u_e.get(), p_e.get()))
                 if cursor.fetchone():
+                    # 1. Set the username first
                     self.logged_user_name = u_e.get()
+                    
+                    # 2. CALL THE LOGGING FUNCTION HERE
+                    self.log_activity("Logged in") 
+                    
+                    # 3. Proceed to dashboard
                     self.login_win.destroy()
                     self.deiconify()
                     self.show_dashboard("home")
                     self.update_status()
-                else: messagebox.showerror("Error", "Invalid login")
+                else: 
+                    messagebox.showerror("Error", "Invalid login")
                 conn.close()
 
         ctk.CTkButton(self.login_win, text="Login", width=250, command=login).pack(pady=20)
