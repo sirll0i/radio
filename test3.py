@@ -414,7 +414,7 @@ class RadioSimulatorApp(ctk.CTk):
 
         if self.freq_val < 350:
             self.canvases[0].itemconfig(self.circles[0], fill="red")
-            if not is_init:
+            if not self.is_muted:
                 winsound.Beep(1000, 100)
 
         elif self.freq_val <= 700:
